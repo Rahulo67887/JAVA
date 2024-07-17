@@ -98,6 +98,16 @@ public class bst {
         inorder(root.right);
     }
 
+    public static void preorder(Node root){
+        if(root==null){
+            return;
+        }
+
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
     public static void main(String[] args) {
         int values[]={8,5,3,1,4,6,10,11,14};
         Node root=null;
@@ -105,6 +115,10 @@ public class bst {
         for(int i=0; i<values.length; i++){
             root=insert(root, values[i]);
         }
+
+        inorder(root);
+        System.out.println();
+        preorder(root);
     }
 
 }
