@@ -1,13 +1,29 @@
-public void insertRec(int val, int index) {
-    head = insertRec(val, index, head);
+import java.util.Arrays;
+public class rough {
+public static char[] lexo_small(int n, int k){
+char arr[] = new char[n];
+Arrays.fill(arr, 'a');
+for (int i = n - 1; i >= 0; i--) {
+k -= i;
+if (k >= 0) {
+if (k >= 26) {
+arr[i] = 'z';
+k -= 26;
 }
-private Node insertRec(int val, int index, Node node) {
-    if (index == 0) {
-        Node temp = new Node(val, node);
-        size++;
-        return temp;
-    }
-
-    node.next = insertRec(val, index-1, node.next);
-    return node;
+else {
+arr[i] = (char)(k + 97 - 1);
+k -= arr[i] - 'a' + 1;
+}
+}
+else
+break;
+k += i;
+}
+return arr;
+}
+public static void main(String[] args){
+int n = 3, k = 25;
+char arr[] = lexo_small(n, k);
+System.out.print(new String(arr));
+}
 }
