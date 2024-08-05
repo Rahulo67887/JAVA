@@ -1,5 +1,7 @@
 import java.util.*;
 
+import org.w3c.dom.Node;
+
 public class bst {
 
     public static class Node{
@@ -109,15 +111,16 @@ public class bst {
     }
 
     public static void main(String[] args) {
-        int values[]={8,5,3,1,4,6,10,11,14};
+        int values[]={30,20,10,25,40,50};
         Node root=null;
 
         for(int i=0; i<values.length; i++){
             root=insert(root, values[i]);
         }
 
-        inorder(root);
+        preorder(root);
         System.out.println();
+        root=delete(root, 20);
         preorder(root);
     }
 

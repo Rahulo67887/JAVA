@@ -1,29 +1,28 @@
-import java.util.Arrays;
-public class rough {
-public static char[] lexo_small(int n, int k){
-char arr[] = new char[n];
-Arrays.fill(arr, 'a');
-for (int i = n - 1; i >= 0; i--) {
-k -= i;
-if (k >= 0) {
-if (k >= 26) {
-arr[i] = 'z';
-k -= 26;
+import java.util.*;
+
+public class rought{
+    public static Node getMinNode(Node root) {
+        Node curr = root;
+        //MIN data is at left-most node
+        while (curr.left != null)
+        curr = curr.left;
+        return curr;
+        }
+        public static Node deleteNode(Node root, int key) {
+        // perform usual BST delete
+        if (root == null) {
+        return root;
+        }
+        // key < root's data => then it lies in left subtree
+        if (key < root.data) {
+        root.left = deleteNode(root.left, key);
+        }
+        // key > root's data => then it lies in right subtree
+        else if (key > root.data) {
+        root.right = deleteNode(root.right, key);
+        }
+        // key = root's data => then this is the node to be deleted
+        else {
+        // node with only one child or no child
 }
-else {
-arr[i] = (char)(k + 97 - 1);
-k -= arr[i] - 'a' + 1;
-}
-}
-else
-break;
-k += i;
-}
-return arr;
-}
-public static void main(String[] args){
-int n = 3, k = 25;
-char arr[] = lexo_small(n, k);
-System.out.print(new String(arr));
-}
-}
+
